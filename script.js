@@ -1,5 +1,10 @@
+/**
+ * Initialize Typing Effect and Page Logic
+ * Updated for Ashwini Kumar's Portfolio
+ */
+
 $(function(){
-    // Typing Effect for the About Page
+    // 1. TYPING ANIMATION (Chirag Samal Style Logic with Ashwini's Info)
     $("#about-me").typed({
         strings: [
             "Project Manager @ Avalara Pune.",
@@ -9,25 +14,28 @@ $(function(){
             "Expert in AI-driven Enterprise Solutions.",
             "Son of an IAF Veteran."
         ],
-        typeSpeed: 30,
-        backDelay: 1500,
-        loop: true,
+        typeSpeed: 30, // Speed matches original reference
+        backDelay: 1500, // Time before deleting the text
+        loop: true, // Continuous loop
     });
 });
 
 /**
- * Switch between sections (About, Education, Family, Contact)
- * This ensures only ONE section is visible at a time.
+ * 2. SECTION SWITCHING LOGIC (Requirement: No scrolling between pages)
+ * This function hides all sections and shows only the one clicked.
  */
 function openPage(pageId) {
-    // 1. Hide every page container immediately to prevent scrolling
+    // Hide every container with the class 'page-content' immediately
+    // This ensures other pages do not appear on scrolling down
     $(".page-content").hide();
     
-    // 2. Show only the specific section that was clicked with a Fade-In effect
+    // Show only the specific section requested (home, education, family, or contact)
+    // Uses 'animated fadeIn' for a smooth transition effect
     $("#" + pageId).show().addClass('animated fadeIn');
     
-    // 3. Auto-close the mobile 'hamburger' menu after a selection is made
+    // Requirement: Mobile Screen Compatibility
+    // Automatically collapses the hamburger menu after a user clicks a link
     if ($(".navbar-toggle").is(":visible")) {
         $(".navbar-collapse").collapse('hide');
     }
-};
+}
