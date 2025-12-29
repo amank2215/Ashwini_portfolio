@@ -1,209 +1,148 @@
 /*
-* @Author: Venu
-* @Date:   2017-06-22 10:45:00
-* @Last Modified by:   Venu
-* @Last Modified time: 2017-07-01 18:43:16
+* Updated Clone for Ashwini Kumar
+* Combines Reference Styling with Section-Switching Logic
 */
 
-.container{
+/* 1. Core Layout & Reset */
+.container {
   font-size: 62.5%;
 }
-.vertical-center{
-  margin-top: 10%;
+
+body {
+  overflow-x: hidden;
+  background-color: #ffffff;
   font-family: 'Open Sans', sans-serif;
 }
 
-#introduction{
-  font-size: 6em;
+.vertical-center {
+  margin-top: 10%; /* Matches Original Reference */
 }
 
-.typed-cursor{
+/* 2. Page Switching Logic (Requirement: No-Scroll) */
+.page-content {
+  display: none; /* Keeps all pages hidden until a link is clicked */
+}
+
+#home {
+  display: block; /* Shows about section by default */
+}
+
+/* 3. Navigation Bar Styling */
+.navbar-default { 
+    background: transparent !important; 
+    border: none !important; 
+    padding: 20px; 
+}
+
+.navbar-default .navbar-nav > li > a { 
+    color: #2c3e50 !important; 
+    font-weight: 700; 
+    font-size: 1.4em;
+    text-transform: uppercase;
+}
+
+.navbar-default .navbar-nav > li > a:hover { 
+    color: #16a085 !important; 
+}
+
+/* 4. Main Page Typography */
+#introduction {
+  font-size: 6em;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 0px;
+}
+
+#motto {
+  font-size: 3em; /* Matches Original Reference */
+  color: #34495e;
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+
+#about-me {
+  font-size: 4em; /* Matches Original Reference */
+  color: #16a085;
+  font-weight: 300;
+}
+
+/* 5. Typing Cursor Animation */
+.typed-cursor {
   opacity: 1;
   -webkit-animation: blink 0.7s infinite;
   -moz-animation: blink 0.7s infinite;
   animation: blink 0.7s infinite;
-  font-size: 4.5em;
-}
-@keyframes blink{
-  0% { opacity:1; }
-  50% { opacity:0; }
-  100% { opacity:1; }
-}
-@-webkit-keyframes blink{
-  0% { opacity:1; }
-  50% { opacity:0; }
-  100% { opacity:1; }
-}
-@-moz-keyframes blink{
-  0% { opacity:1; }
-  50% { opacity:0; }
-  100% { opacity:1; }
+  font-size: 4.5em; /* Matches Original Reference */
+  color: #16a085;
 }
 
-#motto{
-  font-size: 3em;
+@keyframes blink { 0% { opacity:1; } 50% { opacity:0; } 100% { opacity:1; } }
+@-webkit-keyframes blink { 0% { opacity:1; } 50% { opacity:0; } 100% { opacity:1; } }
+
+/* 6. Profile & Section Cards */
+.profile {
+  border: 6px solid #16a085;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 
-#about-me{
-  font-size: 4em;
+.section-title { 
+    color: #16a085; 
+    font-weight: 700; 
+    font-size: 4.5em; 
+    margin-bottom: 25px; 
 }
 
-#resume{
-  font-size: 4em;
+.details-card {
+  background: #ffffff;
+  padding: 35px;
+  border-left: 10px solid #16a085;
+  font-size: 2.2em;
+  line-height: 1.7;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
 }
 
-.social-links{
-  padding-top: 7%;
-}
-
-@media (min-width: 992px) and (max-width: 1200px) {
-  .social-links{
-    padding-top: 0%;
-  }
-  #introduction{
-    font-size: 7em;
-  }
-}
-
-.social-links-container{
-  margin-left: -2%;
-}
-
-@media (max-width: 992px){
-  .social-links-container{
-    margin-left: 0%;
-  }
-}
-.social-links li{
+/* 7. Social Links (Exact Colors from Reference) */
+.social-links { padding-top: 7%; }
+.social-links li {
   display: inline-block;
   width: 9em;
   height: 50%;
   border-radius: 50%;
+  margin-right: 5px;
 }
+.social-links svg { padding: 25%; width: 100%; height: 100%; }
+.social-links path { fill: #FFF; }
 
-.social-links svg{
-  position: relative;
-  float: left;
-  height: 100%;
-  width: 100%;
-  padding: 25%;
-}
+.social-links .github { background-color: #181717; }
+.social-links .twitter { background-color: rgb(85, 172, 238); }
+.social-links .linkedin { background-color: rgb(0, 119, 181); }
 
-.social-links path, .social-links ellipse, .social-links circle{
-  fill: #FFF;
-}
+/* 8. Mobile Compatibility (Reference Media Queries) */
 
-.social-links .github{
-  background-color:#181717;
-}
-
-.social-links .twitter{
-  background-color: rgb(85, 172, 238);
-}
-
-.social-links .facebook{
-  background-color: rgb(59, 89, 152);
-}
-
-.social-links .linkedin{
-  background-color: rgb(0, 119, 181);
-}
-
-.social-links .quora{
-  background-color: rgb(185, 43, 39);
-}
-
-.social-links .googleplus{
-  background-color: rgb(220, 78, 65);
-}
-
-.social-links .blog{
-  background-color: rgb(0,0,0);
-}
-
+/* Mid-size Screens */
 @media (min-width: 767px) and (max-width: 992px) {
-  .typed-cursor{
-    opacity: 1;
-    -webkit-animation: blink 0.7s infinite;
-    -moz-animation: blink 0.7s infinite;
-    animation: blink 0.7s infinite;
-    font-size: 4vw;
-  }
-  .vertical-center{
-    margin-top: 2%;
-    font-family: 'Open Sans', sans-serif;
-  }
-  .profile{
-    margin: 0 auto;
-    width: 50%;
-  }
-  .res-content{
-    margin: 0 auto;
-    width: 100%;
-    position: relative;
-    text-align: center;
-  }
-  #introduction{
-    font-size: 8vw;
-  }
-  #about-me{
-    font-size: 4vw;
-  }
-  #resume{
-    font-size: 4vw;
-  }
-  .social-links{
-    padding-left:2%;
-    padding-right:4%;
-  }
-  .social-links li{
-    display: inline-block;
-    width: 10.5vw;
-    height: 50%;
-    border-radius: 50%;
-  }
+  .vertical-center { margin-top: 2%; }
+  #introduction { font-size: 8vw; }
+  #about-me { font-size: 4vw; }
+  .typed-cursor { font-size: 4vw; }
+  .profile { width: 50%; margin: 0 auto; }
 }
 
+/* Small Screens / Mobile */
 @media (max-width: 767px) {
-  .typed-cursor{
-    opacity: 1;
-    -webkit-animation: blink 0.7s infinite;
-    -moz-animation: blink 0.7s infinite;
-    animation: blink 0.7s infinite;
-    font-size: 5.3vw;
+  .vertical-center { 
+      margin-top: 20%; 
+      text-align: center; 
   }
-  .vertical-center{
-    margin-top: 2%;
-    font-family: 'Open Sans', sans-serif;
-  }
-  .profile{
-    margin: 0 auto;
-    width: 50%;
-  }
-  .res-content{
-    margin: 0 auto;
-    width: 100%;
-    position: relative;
-    text-align: center;
-    margin-top: 8%;
-  }
-  #introduction{
-    font-size: 8vw;
-  }
-  #about-me{
-    font-size: 5.3vw;
-  }
-  #resume{
-    font-size: 5.3vw;
-  }
-  .social-links{
-    padding-left:2%;
-    padding-right:4%;
-  }
-  .social-links li{
-    display: inline-block;
-    width: 12vw;
-    height: 50%;
-    border-radius: 50%;
-  }
+  #introduction { font-size: 8vw; }
+  #about-me { font-size: 5.3vw; }
+  .typed-cursor { font-size: 5.3vw; }
+  .section-title { font-size: 8vw; }
+  .details-card { font-size: 4vw; padding: 20px; }
+  .profile { width: 60%; margin: 0 auto 20px auto; }
+
+  /* Hamburger Menu Color for Mobile */
+  .navbar-toggle { background-color: #16a085 !important; border: none; }
+  .navbar-toggle .icon-bar { background-color: #ffffff !important; }
 }
